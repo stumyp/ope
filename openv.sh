@@ -6,9 +6,9 @@ function usage() {
     Usage:
     $0 <env> <command> [args]
 
-    Where 
-      - <env> is login item with 'environment' variables section
-      - <command> [args] is command with arguments you want to run 
+    Where
+      - <env> is item with 'environment' variables section
+      - <command> [args] is command with arguments you want to run
     
 EOH
 }
