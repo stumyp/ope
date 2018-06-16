@@ -10,7 +10,7 @@ Secrets, password, access keys are not safe to store in plain text on your compu
 
 ```
     Usage:
-    $0 <env> <command> [args]
+    openv <env> <command> [args]
 
     Where
       - <env> is item with 'environment' variables section
