@@ -39,4 +39,10 @@ Where:
 - item_title is title of the item with "environment" section
 - env is any arbitrary string you want to name your environment
 
+## TODO
+
+- create items from the tool itself
+- ask again for failed password
+- use already authenticated session
+
 inspired by [envchain](https://github.com/sorah/envchain)
