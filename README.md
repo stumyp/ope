@@ -43,13 +43,27 @@ Config file is simple JSON file located in `$HOME/.openvrc`
 }
 ```
 
+or
+
+```
+{
+"domain": "<domain>",
+"vault_uuid": "xxx",
+"item_uuid": "xxx",
+"env": "<env_name>"
+}
+```
+
 Where:
 
 - domain is what you use to `op signin <domain>`
 - vault_title is the title of the vault where item is located
+- vault_uuid is the UUID of the vault where item is located (overrides vault_title, if both present)
 - item_title is title of the item with "environment" section
+- item_uuid is UUID of the item with "environment" section (overrides item_title, if both present)
 - env is any arbitrary string you want to name your environment
 
+Using titles instead of UUIDs is a little bit slower but has better readability
 ## TODO
 
 - create items from the tool itself
