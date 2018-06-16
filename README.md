@@ -19,6 +19,17 @@ Secrets, password, access keys are not safe to store in plain text on your compu
 
 `openv` requires specially created item which has section named `environment`. In that section you define variables. Each field name and value will be variables name and value. Once all variables are read they are exported to child process where `<command>` is executed.
 
+### Example
+
+![item screenshot](http://com-agilebits-users.s3.amazonaws.com/tim/shots/2018-06-15-23-31-30.png)
+
+```
+openv.sh openvtest env | grep OP_ENV
+Enter the password for user user@domain.com at domain.1password.com:
+OP_ENV2=test value 2
+OP_ENV1=test value 1
+```
+
 ### Config file
 
 Config file is simple JSON file located in `$HOME/.openvrc`
