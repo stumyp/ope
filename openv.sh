@@ -28,13 +28,10 @@ eval $(
 [ -z "$domain" ] && usage
 export OP_SESSION_${domain}=$(op signin ${domain} --output=raw)
 # getting vault uuid by title
-echo $vault_uuid
 if [ "$vault_uuid" = "null" ]; then
-    echo "didnt find vault_uuid"
     export vault_uuid=$(op list vaults | jq -r  '.[]|select(.name == "'${vault_title}'")|.uuid')
 fi
 # finding item uuid by its title
-echo $item_uuid
 if [ "$item_uuid" = "null" ]; then
     export item_uuid=$(op list items --vault=${vault_uuid}  | jq -r '.[]|select(.overview.title == "'${item_title}'")|.uuid')
 fi
