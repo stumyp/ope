@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# abort on command non-zero exit
 set -e
 
 usage() {
@@ -27,7 +28,19 @@ eval $(
 
 # signing in
 [ -z "$domain" ] && usage
-export OP_SESSION_${domain}=$(op signin ${domain} --output=raw)
+
+# Dynamic session variable
+export SESSION_ENV="OP_SESSION_${domain}"
+
+# disable exit on command failure 
+set +e
+# While session is empty retry sign in 
+while [ -z ${!SESSION_ENV}  ]; do 
+    export ${SESSION_ENV}=$(op signin ${domain} --output=raw)
+done
+# abort on command non-zero exit
+set -e
+
 # getting vault uuid by title
 if [ "$vault_uuid" = "null" ]; then
     export vault_uuid=$(op list vaults | jq -r  '.[]|select(.name == "'${vault_title}'")|.uuid')
