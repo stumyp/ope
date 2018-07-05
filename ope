@@ -22,7 +22,7 @@ shift
 
 # reading config file, extracting settings for specific environment
 eval $(
-    cat ~/.openvrc |
+    cat ~/.operc |
     jq -r 'select(.env == "'${env}'")|"export domain=\"\(.domain)\" vault_title=\"\(.vault_title)\" item_title=\"\(.item_title)\" vault_uuid=\"\(.vault_uuid)\"  item_uuid=\"\(.item_uuid)\""'
 )
 

@@ -6,25 +6,25 @@ Secrets, password, access keys are not safe to store in plain text on your compu
 
 ## How
 
-`openv` uses [op](https://support.1password.com/command-line/) to store and retrieve secrets and [jq](https://stedolan.github.io/jq/) to process and extract them. Written in Bash
+`ope` uses [op](https://support.1password.com/command-line/) to store and retrieve secrets and [jq](https://stedolan.github.io/jq/) to process and extract them. Written in Bash
 
 ```
     Usage:
-    openv <env> <command> [args]
+    ope <env> <command> [args]
 
     Where
       - <env> is item with 'environment' variables section
       - <command> [args] is command with arguments you want to run
 ```
 
-`openv` requires specially created item which has section named `environment`. In that section you define variables. Each field name and value will be variables name and value. Once all variables are read they are exported to child process where `<command>` is executed.
+`ope` requires specially created item which has section named `environment`. In that section you define variables. Each field name and value will be variables name and value. Once all variables are read they are exported to child process where `<command>` is executed.
 
 ### Example
 
 ![item screenshot](http://com-agilebits-users.s3.amazonaws.com/tim/shots/2018-06-15-23-31-30.png)
 
 ```
-openv.sh openvtest env | grep OP_ENV
+ope opetest env | grep OP_ENV
 Enter the password for user user@domain.com at domain.1password.com:
 OP_ENV2=test value 2
 OP_ENV1=test value 1
@@ -32,7 +32,7 @@ OP_ENV1=test value 1
 
 ### Config file
 
-Config file is simple JSON file located in `$HOME/.openvrc`
+Config file is simple JSON file located in `$HOME/.operc`
 
 ```
 {
