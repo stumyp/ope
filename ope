@@ -50,7 +50,7 @@ if [ "$item_uuid" = "null" ]; then
     export item_uuid=$(op list items --vault=${vault_uuid}  | jq -r '.[]|select(.overview.title == "'${item_title}'")|.uuid')
 fi
 # exporting variables from "environment" section
-eval $(op get item ${item_uuid} --vault=${vault_id} | 
+eval $(op get item ${item_uuid} --vault=${vault_uuid} | 
     jq -r '.details.sections[]|select(.title == "environment")|.fields[]|"export \(.t)=\"\(.v)\""')
 
 # signing out
