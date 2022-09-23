@@ -1,3 +1,7 @@
+# This is outdated tool
+
+This tool can only work with 1Password CLI version 1 and does not do all the cool things it could do. I will post an update with the correct version sometime soon.
+
 # Set environment variables with 1Password CLI
 
 ## Why
